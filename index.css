@@ -1548,7 +1548,7 @@ footer {
 @media (max-width: 992px) {
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
     text-align: center;
   }
   .hero-content {
@@ -1574,22 +1574,22 @@ footer {
   }
   .authors-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
   .act-grid {
     grid-template-columns: 1fr;
-    gap: 3.5rem;
+    gap: 2.5rem;
   }
   .act-multimodal-sidebar {
     position: static;
   }
   .video-grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
   }
   .press-layout {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
     text-align: center;
   }
   .press-visual {
@@ -1601,45 +1601,110 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .journal-container {
+    padding: 2.5rem 1.25rem;
+  }
+  .hero-section {
+    padding: 4rem 1.25rem;
+    min-height: auto;
+  }
+  .ledger-section {
+    padding: 3rem 0;
+  }
   .ledger-chapters-grid {
     grid-template-columns: 1fr;
     max-height: none;
   }
   .svg-mindmap-box {
-    height: 200px;
+    height: auto;
+    aspect-ratio: 350 / 250;
+    padding: 0.5rem;
   }
 }
 
 @media (max-width: 576px) {
+  .journal-container {
+    padding: 2rem 0.75rem;
+  }
+  .hero-section {
+    padding: 3rem 0.75rem;
+  }
+  .hero-eyebrow {
+    font-size: 1.4rem;
+  }
   .hero-title {
     font-size: 2.25rem;
   }
   .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-description {
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+  }
+  .hero-buttons {
+    gap: 0.75rem;
+    justify-content: center;
+    width: 100%;
+  }
+  .hero-buttons .btn-ink,
+  .hero-buttons .btn-ink-outline {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
   }
   .section-title {
-    font-size: 2rem;
+    font-size: 1.85rem;
+    margin-bottom: 2rem;
+  }
+  .ledger-left-page, .ledger-right-page {
+    padding: 1.75rem 1rem;
+  }
+  .ledger-intro-quote {
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    padding-left: 1rem;
   }
   .author-header {
     flex-direction: column;
     text-align: center;
+    gap: 1rem;
+  }
+  .author-card {
+    padding: 1.5rem 1.25rem;
   }
   .act-container {
-    padding: 2rem 1.25rem;
+    padding: 2rem 1rem;
+    margin-bottom: 3rem;
+  }
+  .act-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
   .act-title {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
+  }
+  .act-num {
+    font-size: 1.75rem;
+    align-self: flex-end;
   }
   .card-quote-text {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
   .share-action-row {
     flex-direction: column;
     width: 100%;
+    gap: 0.5rem;
   }
   .share-action-btn {
     width: 100%;
     justify-content: center;
+    padding: 0.6rem 1rem;
   }
   .share-toast {
     left: 1rem;
@@ -1647,5 +1712,14 @@ footer {
     bottom: 1rem;
     text-align: center;
     justify-content: center;
+  }
+  .compact-cassette {
+    height: 56px;
+  }
+  .compact-label {
+    width: 95%;
+  }
+  .compact-title {
+    font-size: 0.6rem;
   }
 }
