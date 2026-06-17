@@ -382,7 +382,7 @@ function loadTrackInAct(actId, partNum, autoplay = false) {
   config.progress.value = 0;
   
   // Set the audio src locally
-  const expectedSrc = `podcast_parts/part_${partNum}.m4a`;
+  const expectedSrc = `podcast_parts/part_${partNum}.mp4`;
   const currentSrc = config.audio.getAttribute('src');
   if (currentSrc !== expectedSrc) {
     config.audio.src = expectedSrc;
