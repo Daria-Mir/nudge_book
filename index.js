@@ -382,7 +382,7 @@ function loadTrackInAct(actId, partNum, autoplay = false) {
   config.progress.value = 0;
   
   // Set the audio src locally
-  const expectedSrc = `podcast_parts/part_${partNum}.m4a`;
+  const expectedSrc = `podcast_parts/part_${partNum}.mp3`;
   const currentSrc = config.audio.getAttribute('src');
   if (currentSrc !== expectedSrc) {
     config.audio.src = expectedSrc;
@@ -486,6 +486,29 @@ Object.keys(actsConfig).forEach(actId => {
       loadTrackInAct(actId, config.select.value, true);
     } else {
       pauseActAudio(actId);
+    }
+  });
+
+  // Self-healing path fallback for deployment directory structure variations
+  config.audio.addEventListener('error', () => {
+    const currentSrc = config.audio.src || "";
+    console.warn(`Audio playback error on Act player ${actId}, src: ${currentSrc}`);
+    
+    // Fallback 1: If it failed trying the subfolder, try the root directory
+    if (currentSrc.includes('podcast_parts/')) {
+      const filename = currentSrc.substring(currentSrc.lastIndexOf('/') + 1);
+      console.log(`Self-healing fallback: trying root path for ${filename}`);
+      config.audio.src = filename;
+      config.audio.load();
+      config.audio.play().catch(e => console.warn("Fallback play failed:", e));
+    }
+    // Fallback 2: If it failed trying the root directory, try the subfolder
+    else if (!currentSrc.includes('podcast_parts/') && currentSrc.length > 0) {
+      const filename = currentSrc.substring(currentSrc.lastIndexOf('/') + 1);
+      console.log(`Self-healing fallback: trying subpath podcast_parts/${filename}`);
+      config.audio.src = `podcast_parts/${filename}`;
+      config.audio.load();
+      config.audio.play().catch(e => console.warn("Fallback play failed:", e));
     }
   });
   
